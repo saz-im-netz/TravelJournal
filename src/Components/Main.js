@@ -1,10 +1,26 @@
-import React from "react"
-import Location from "./Location"
+import React from "react";
+import data from "./data";
+import Location from "./Location";
+import "./Main.css";
 
-export default function Main(){
+function Main(){
+    const destinations = data.map( location => {
+        return (
+            <Location 
+                key={location.id}
+                location={location}
+            />
+        )
+    })
+    
     return (
-        <div>
-            <Location />
-        </div>
+        <main>
+            <div class="destination--list">
+                {destinations}
+            </div>
+            
+        </main>
     )
 }
+
+export default Main;
